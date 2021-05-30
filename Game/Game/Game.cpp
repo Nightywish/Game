@@ -3,9 +3,18 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+void print_array(int array[], int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		cout << array[i]<<" ";
+	}
 
+}
 void play_game()
 {
+	int guesses[250];
+	int guess_count = 0;
 	int random = rand() % 70;
 	cout << random << endl;
 	cout << "guess next number" << endl;
@@ -13,7 +22,7 @@ void play_game()
 	{
 		int guess;
 		cin >> guess;
-
+		guesses[guess_count++] = guess;
 		if (guess == random)
 		{
 			cout << "u got it !" << endl;
@@ -29,6 +38,7 @@ void play_game()
 		}
 
 	}
+	print_array(guesses, guess_count);
 }
 int main()
 {
